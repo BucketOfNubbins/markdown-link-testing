@@ -17,7 +17,7 @@ Visual Studio** do *not* work in Visual Studio's markdown preview.
 - [Document A, "2. Something else"](doc-a.md#2-something-else) — cross-file link to a heading in another file
 
 <!-- filler so a working jump produces a visible scroll -->
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Section One
 
@@ -25,7 +25,7 @@ A plain-text heading. Its same-file anchor `#section-one` works in Visual
 Studio, but the cross-file link `doc-b.md#section-one` from Document A does not.
 
 <!-- filler -->
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Section Two
 

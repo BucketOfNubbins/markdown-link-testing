@@ -20,7 +20,7 @@ Visual Studio** do *not* work in Visual Studio's markdown preview.
 > about *cross-file* anchors, not the anchor itself.
 
 <!-- filler so a working jump produces a visible scroll -->
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## 1. Something
 
@@ -28,7 +28,7 @@ A heading whose text begins with a number. Its GitHub anchor is
 `#1-something`; Visual Studio fails to navigate to it.
 
 <!-- filler -->
-<br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## 2. Something else
 

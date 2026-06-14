@@ -1,5 +1,16 @@
+# Build output
 bin/
 bin-int/
 build/
 obj/
 out/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Visual Studio local state
+.vs/
+*.user
+*.suo
+*.aps

@@ -20,27 +20,22 @@ markdown preview, two kinds of links are broken:
 Each link in the docs is labeled with what it tests and whether it works, so
 you can click through them in Visual Studio and compare against GitHub.
 
-## Prerequisites
+Reproduced in **Visual Studio 2022** and **Visual Studio 2026**.
 
-- [premake5](https://premake.github.io/) on your `PATH`
-- Visual Studio 2022 with the **Desktop development with C++** workload
+## Opening in Visual Studio
 
-## Generate and open in Visual Studio
-
-From the project root:
+No generators or extra build tools are required — the Visual Studio solution is
+checked in. Just open it from the project root:
 
 ```powershell
-premake5 vs2022
+start MarkdownLinkTesting.sln
 ```
 
-This writes the solution to the `build\` folder. Open it with:
+or double-click `MarkdownLinkTesting.sln` in File Explorer.
 
-```powershell
-start build\MarkdownLinkTesting.sln
-```
+The two markdown files (and this README) are included in the solution, so you
+can open them from Solution Explorer and click the links directly.
 
-The two markdown files are included in the solution (see the project's files in
-Solution Explorer), so you can open them and click the links directly.
-
-To target a different Visual Studio version, use the matching action, e.g.
-`premake5 vs2019`.
+> If Visual Studio offers to retarget the project to a newer platform toolset or
+> Windows SDK, you can accept or ignore it — the project is only a hello-world
+> program and does not need to build to demonstrate the issue.
