@@ -1,58 +1,32 @@
 # Document B
 
-This is the second markdown file. Document A links here, and this file
-links back to Document A.
+A second test file, so the cross-file links in Document A have a real target.
 
-## Links to test
+Every link below works correctly on GitHub. The links under **Broken in
+Visual Studio** do *not* work in Visual Studio's markdown preview.
 
-- Relative link back to the other file: [Document A](doc-a.md)
-- Relative link to a heading in the other file: [Document A, Something](doc-a.md#1-something)
-- Relative link to another heading in the other file: [Document A, Something else](doc-a.md#2-something-else)
-- Link to a heading in this file: [jump to Section One](#section-one)
-- Link to another heading [jump to Section Two](#section-two)
+## Links that work everywhere
+
+- [Open Document A](doc-a.md) — relative link to another file, **no anchor**
+- [Jump to Section One](#section-one) — same-file anchor to a plain-text heading
+- [Jump to Section Two](#section-two) — same-file anchor to a plain-text heading
+
+## Links broken in Visual Studio
+
+- [Document A, "1. Something"](doc-a.md#1-something) — cross-file link to a heading in another file
+- [Document A, "2. Something else"](doc-a.md#2-something-else) — cross-file link to a heading in another file
+
+<!-- filler so a working jump produces a visible scroll -->
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Section One
 
-Some content under Section One of Document B.
+A plain-text heading. Its same-file anchor `#section-one` works in Visual
+Studio, but the cross-file link `doc-b.md#section-one` from Document A does not.
 
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
+<!-- filler -->
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Section Two
 
-Some more content
+Another plain-text heading. Its same-file anchor `#section-two` also works.

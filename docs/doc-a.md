@@ -1,64 +1,35 @@
 # Document A
 
-This is the first markdown file. It exists to test how Visual Studio
-resolves and navigates markdown links.
+A test file for Visual Studio's markdown link handling.
 
-## Links to test
+Every link below works correctly on GitHub. The links under **Broken in
+Visual Studio** do *not* work in Visual Studio's markdown preview.
 
-- Relative link to the other file: [Document B](doc-b.md)
-- Relative link to a heading in the other file: [Document B, Section One](doc-b.md#section-one)
-- Link to a heading in this file: [jump to 1. Something](#1-something)
-- Link to another heading in this file: [jump to 2. Something else](#2-something-else)
+## Links that work everywhere
+
+- [Open Document B](doc-b.md) — relative link to another file, **no anchor**
+
+## Links broken in Visual Studio
+
+- [Document B, Section One](doc-b.md#section-one) — cross-file link to a heading in another file
+- [Jump to "1. Something"](#1-something) — same-file anchor; **heading starts with a number**
+- [Jump to "2. Something else"](#2-something-else) — same-file anchor; **heading starts with a number**
+
+> Note: `#section-one` works as a same-file anchor inside Document B, yet the
+> cross-file form `doc-b.md#section-one` above is broken — so the breakage is
+> about *cross-file* anchors, not the anchor itself.
+
+<!-- filler so a working jump produces a visible scroll -->
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## 1. Something
 
-Some content under Section One of Document B.
+A heading whose text begins with a number. Its GitHub anchor is
+`#1-something`; Visual Studio fails to navigate to it.
 
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
-padding
-
+<!-- filler -->
+<br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## 2. Something else
 
-Hello
+Another numbered heading. Its GitHub anchor is `#2-something-else`.
