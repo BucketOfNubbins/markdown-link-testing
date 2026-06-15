@@ -10,12 +10,25 @@ the interesting part lives in [docs/](docs).
 of markdown links. **All of them work correctly on GitHub.** In Visual Studio's
 markdown preview, two kinds of links are broken:
 
-1. **Cross-file heading links** — `otherfile.md#heading`. Visual Studio opens
-   the file but does not jump to the heading. Plain `otherfile.md` links (no
-   anchor) work fine.
-2. **Same-file anchors to headings that start with a number** — e.g.
-   `#1-something` for a `## 1. Something` heading. Anchors to plain-text
-   headings such as `#section-one` work fine.
+1. **Cross-file anchor links** ([docs/doc-b.md](docs/doc-b.md)) —
+   `otherfile.md#heading`. Visual Studio opens the file but does not jump to the
+   heading, even for a plain heading whose id is identical in both engines.
+   Plain `otherfile.md` links (no anchor) work fine.
+2. **Same-file anchors whose GitHub heading id differs from VS's**
+   ([docs/doc-a.md](docs/doc-a.md)). VS's preview generates heading ids that are
+   not GitHub-compatible, so a correct GitHub anchor finds nothing in VS. The
+   two divergences:
+   - A **leading number** is dropped by VS (`## 5 Reasons` → `reasons`, not
+     `5-reasons`). A number in the *middle* of a title is fine in both.
+   - A **dot** is removed by GitHub but kept by VS (`## Version 2.0 Notes` →
+     `version-20-notes` on GitHub, `version-2.0-notes` in VS).
+
+Presumed cause: we can't see Visual Studio's internals, but its preview behaves
+exactly as the [Markdig](https://github.com/xoofx/markdig) parser does when run
+**without** its `AutoIdentifierOptions.GitHub` option — every observed id is
+reproduced that way. So VS *appears* to use a Markdig-like algorithm with
+non-GitHub identifiers; this is inferred from behavior, not confirmation that VS
+uses Markdig.
 
 Each link in the docs is labeled with what it tests and whether it works, so
 you can click through them in Visual Studio and compare against GitHub.

@@ -1,32 +1,45 @@
-# Document B
+# Document B — cross-document link tests
 
-A second test file, so the cross-file links in Document A have a real target.
+This file focuses on **cross-file** anchor links (`other-file.md#heading`).
 
-Every link below works correctly on GitHub. The links under **Broken in
-Visual Studio** do *not* work in Visual Studio's markdown preview.
+The finding: when a link points to a heading in *another* file, Visual Studio
+opens the file but does **not** scroll to the heading — even when the anchor is
+a plain heading whose id is identical on GitHub and in VS. So this is a
+navigation gap that is **separate** from the heading-id differences shown in
+[Document A](doc-a.md).
 
-## Links that work everywhere
+## Works in both
 
-- [Open Document A](doc-a.md) — relative link to another file, **no anchor**
-- [Jump to Section One](#section-one) — same-file anchor to a plain-text heading
-- [Jump to Section Two](#section-two) — same-file anchor to a plain-text heading
+- [Open Document A](doc-a.md) — cross-file link with **no anchor**
+- [Jump to Section One](#section-one) — **same-file** anchor in this file
+- [Jump to Section Two](#section-two) — **same-file** anchor in this file
 
-## Links broken in Visual Studio
+## Broken in Visual Studio — cross-file anchor not followed
 
-- [Document A, "1. Something"](doc-a.md#1-something) — cross-file link to a heading in another file
-- [Document A, "2. Something else"](doc-a.md#2-something-else) — cross-file link to a heading in another file
+Both targets are **plain** headings in Document A (`plain-heading`,
+`chapter-3-summary`) whose ids are the *same* on GitHub and in VS, so the
+heading-id difference is ruled out. These work on GitHub; in VS the file opens
+but the view does not jump to the heading.
+
+- [Document A → Plain Heading](doc-a.md#plain-heading)
+- [Document A → Chapter 3 Summary](doc-a.md#chapter-3-summary)
+
+Contrast this with the same-file links above: `#section-one` jumps correctly
+*within* this file, yet a cross-file reference to the same kind of plain heading
+does not. The only difference is crossing the file boundary, which isolates this
+as a distinct bug from the slug issues in Document A.
 
 <!-- filler so a working jump produces a visible scroll -->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Section One
 
-A plain-text heading. Its same-file anchor `#section-one` works in Visual
-Studio, but the cross-file link `doc-b.md#section-one` from Document A does not.
+A plain-text heading. Its **same-file** anchor `#section-one` works in Visual
+Studio; a **cross-file** link to it from another document does not.
 
 <!-- filler -->
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 ## Section Two
 
-Another plain-text heading. Its same-file anchor `#section-two` also works.
+Another plain-text heading; `#section-two` works as a same-file anchor too.
