@@ -11,9 +11,13 @@ of markdown links. **All of them work correctly on GitHub.** In Visual Studio's
 markdown preview, two kinds of links are broken:
 
 1. **Cross-file anchor links** ([docs/doc-b.md](docs/doc-b.md)) —
-   `otherfile.md#heading`. Visual Studio opens the file but does not jump to the
-   heading, even for a plain heading whose id is identical in both engines.
-   Plain `otherfile.md` links (no anchor) work fine.
+   `otherfile.md#heading`. When a link has a `#fragment`, Visual Studio **ignores
+   the file path entirely** and resolves the fragment against the *current*
+   document — it never navigates to the named file. So a "cross-file" link jumps
+   only if the *current* file happens to contain that id (landing on the wrong
+   file's heading), and otherwise does nothing. Only a plain `otherfile.md` link
+   with **no** fragment actually crosses to another file. No format works around
+   this; the file path is discarded whenever a fragment is present.
 2. **Same-file anchors whose GitHub heading id differs from VS's**
    ([docs/doc-a.md](docs/doc-a.md)). VS's preview generates heading ids that are
    not GitHub-compatible, so a correct GitHub anchor finds nothing in VS. The

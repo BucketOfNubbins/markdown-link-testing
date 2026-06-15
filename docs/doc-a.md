@@ -95,3 +95,14 @@ appears to use keeps it (`version-2.0-notes`).
 
 The original failure mode — a leading number *and* a dot. GitHub →
 `1-leading-number`; Visual Studio → `leading-number`.
+
+<!-- filler -->
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<a id="manual-anchor"></a>
+
+## Manual Anchor Target
+
+Preceded by an explicit `<a id="manual-anchor"></a>`. Used by Document B to test
+whether VS will follow a cross-file link to a hand-authored HTML anchor
+(`doc-a.md#manual-anchor`).
